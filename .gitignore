@@ -104,3 +104,5 @@ venv.bak/
 .mypy_cache/
 ME480Lectures.code-workspace
 .vscode/settings.json
+Lecture4/some_csv2.txt
+Lecture4/some_csv.txt
