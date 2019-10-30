@@ -1,4 +1,6 @@
-#import LEDBlinkAndPrint
+#import LEDBlink
 #import Buzz
-import SwitchBuzzLED
+#import LEDBlinkAndPrint
+#import SwitchBuzzLED
+#import LEDInput
 #import ServoRamp
