@@ -23,5 +23,9 @@ def members():
 def getMember(name):
     return "I think " + name + " is a member"
 
+@app.route("/members/<string:firstname>/<string:lastname>/<int:id>")
+def getMemberID(firstname,lastname,id):
+    return f'Member {id}: {lastname}, {firstname}'
+
 if __name__ == "__main__":
     app.run(debug = True)
