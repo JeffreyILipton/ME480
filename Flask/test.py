@@ -12,10 +12,9 @@ def index():
 def hello():
     return "Hello there!"
 
-@app.route("/mdemo/<float:ivar>")
 @app.route("/idemo/<int:ivar>")
 @app.route("/demo/<ivar>")
-def demotype(ivar):
+def showtype(ivar):
     print(type(ivar))
     t = str(type(ivar)).split("'")[1]
     svar = str(ivar)
