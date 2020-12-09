@@ -50,14 +50,34 @@ def makeTask(title,description='',completion=False):
 
 @app.route('/todo/tasks', methods=['POST'])
 def new_task():
-    print("in new_task")
     if (not request.json) or (not ('title' in request.json)):
         abort(400)
     t = makeTask(request.json["title"],request.json.get('description',''))
-    print(t)
     tasks.append(t)
-    print(tasks)
     return jsonify({'task':t}), 201
+
+
+@app.route('/todo/tasks', methods = ['PUT'])
+def updateTask():
+    if (not request.json) or (not ('id' in request.json)):
+        abort(400)
+    for task in tasks:
+        if task['id'] == request.json["id"]:
+            task['description'] = request.json.get('description',task['description'])
+            task['done']= request.json.get('done',task['done'])
+            task['title'] = request.json.get('title',task['title'])
+            return jsonify({'task':task}), 201
+    abort(404)
+
+@app.route('/todo/tasks', methods = ['DELETE'])
+def delTask():
+    if (not request.json) or (not ('id' in request.json)):
+        abort(400)
+    for task in tasks:
+        if task['id'] == request.json["id"]:
+            tasks.remove(task)
+            return jsonify({'action':'done'}), 201
+    abort(400)
 
 if __name__ == '__main__':
     app.run(debug=True)
