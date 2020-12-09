@@ -12,6 +12,16 @@ def index():
 def hello():
     return "Hello there!"
 
+@app.route("/mdemo/<float:ivar>")
+@app.route("/idemo/<int:ivar>")
+@app.route("/demo/<ivar>")
+def demotype(ivar):
+    print(type(ivar))
+    t = str(type(ivar)).split("'")[1]
+    svar = str(ivar)
+    print(svar + " is a " + t)
+    return svar + " is a " + t
+
 
 @app.route("/members")
 def members():
