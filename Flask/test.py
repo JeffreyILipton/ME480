@@ -14,7 +14,8 @@ def hello():
 
 @app.route("/idemo/<int:ivar>")
 @app.route("/demo/<ivar>")
-def cooltype(ivar):
+
+def showtype(ivar):
     print(type(ivar))
     t = str(type(ivar)).split("'")[1]
     svar = str(ivar)
